@@ -1,10 +1,17 @@
 {{#each writings as |writing|}}
   {{log Writing}}
   <section data-id="{{writing.id}}">
-    <h6>Title:</h6>
+    <h3>Title:</h3>
     <h3>
       {{limit writing.name 20}}
     </h3>
+    <p>
+      {{#if writing.genre}}
+        {{writing.genre}}
+      {{else}}
+        No genre provided
+      {{/if}}
+    </p>
     <p>
       {{#if writing.author}}
         {{writing.author}}
@@ -12,10 +19,12 @@
         No author provided
       {{/if}}
     </p>
-    <p>
-      {{hello}}
-    </p>
-    {{>remove-writing id=writing.id}}
+    {{#if writing.editable}}
+      {{> remove-writing id=writing.id}}
+      {{> update-writing id=writing.id}}
+    {{else}}
+      :)
+    {{/if}}
   </section>
 
   {{/each}}

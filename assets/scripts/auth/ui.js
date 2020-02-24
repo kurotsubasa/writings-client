@@ -14,10 +14,15 @@ const onSignUpFailure = function (response) {
 }
 
 const onSignInSuccess = function (response) {
-  $('#message').text('Welcome back ' + response.user.email + ', please click Start game to begin playing :)')
+  $('#message').text('Welcome back ' + response.user.email + ' :)')
   $('#sign-in').trigger('reset')
   store.user = response.user
-  // $('#sign-in').hide()
+  $('.token').val(store.user.token)
+  $('#change-password').show()
+  $('#signOut').show()
+  $('#sign-in').hide()
+  $('#sign-up').hide()
+  // $('#sign-in').hide(
   // $('#signIn').hide()
   // $('#signUp').hide()
   // $('#signOut').show()
@@ -43,6 +48,10 @@ const onChangePasswordFailure = function (response) {
 
 const onSignOutSuccess = function (response) {
   $('#message').text('successfully signed out')
+  $('#change-password').hide()
+  $('#signOut').hide()
+  $('#sign-in').show()
+  $('#sign-up').show()
   // $('#change-password').hide()
   // $('#changePassword').hide()
   // $('#signOut').hide()

@@ -17,10 +17,10 @@
         <div class="buttons">
           <!-- <button id="signIn" class="user">Sign In!</button>
           <button id="signUp" class="user">Sign Up!</button> -->
-          <button id="signOut" class="user">Sign Out!</button>
+          <button id="signOut" class="btn btn-danger">Sign Out!</button>
           <button id="getWritingsButton" class="btn btn-info mr-2">Get Writings!</button>
           <button id="clearWritingsButton" class="btn btn-outline-info">Clear Writings!</button>
-          <!-- <button id="changePassword" class="user">Change Password!</button> -->
+          <button id="createWritingsButton" class="btn btn-outline-info">Create Writing!</button>
         </div>
       </nav>
       <h2 id="message"></h2>
@@ -49,14 +49,36 @@
           <legend>Change Password!</legend>
           <input name="passwords[old]" class="form-control" type="password" placeholder="Old Password">
           <input name="passwords[new]" class="form-control" type="password" placeholder="New Password">
-          <input type="submit" class="btn btn-secondary" value="Change password">
+          <input type="submit" class="btn btn-warning" value="Change password">
         </fieldset>
       </form>
 
       </div>
       <main>
+        <form id='modifyWriting'>
+          <fieldset>
+            <legend>Change your entry!</legend>
+            <input name="writing[name]" class="form-control" type="text" placeholder="Lord of the Flies">
+            <input name="writing[genre]" class="form-control" type="text" placeholder="scifi">
+            <input name="writing[author]" class="form-control" type="text" placeholder="William Golding">
+            <input name="writing[id]" id="modifyId" class="form-control" type="hidden">
+            <input type="submit" class="btn btn-secondary" value="Submit">
+          </fieldset>
+        </form>
+
+        <form id='createWriting'>
+          <fieldset>
+            <legend>Create your entry!</legend>
+            <input name="writing[name]" class="form-control" type="text" placeholder="Lord of the Flies">
+            <input name="writing[genre]" class="form-control" type="text" placeholder="scifi">
+            <input name="writing[author]" class="form-control" type="text" placeholder="William Golding">
+            <input type="submit" class="btn btn-secondary" value="Submit">
+          </fieldset>
+        </form>
+
         <div id="content" class="content">
         </div>
+
       </main>
     </body>
 </html>

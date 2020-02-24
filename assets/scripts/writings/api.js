@@ -6,25 +6,28 @@ const store = require('../store')
 const getWritings = () => {
   return $.ajax({
     method: 'GET',
-    url: config.apiUrl + '/writings'
-  })
-}
-
-const getWriting = (id) => {
-  return $.ajax({
-    method: 'GET',
-    url: config.apiUrl + '/writings/' + id,
+    url: config.apiUrl + '/writings',
     headers: {
       Authorization: 'Token token=' + store.user.token
-    },
-    data: id
+    }
   })
 }
 
-const updateWriting = (data) => {
+const getWriting = (event) => {
+  const id = $(event.target).data('id')
+  return $.ajax({
+    method: 'GET',
+    url: `${config.apiUrl}/writings/${id}`,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const updateWriting = (data, id) => {
   return $.ajax({
     method: 'PATCH',
-    url: config.apiUrl + '/writings/' + data.id,
+    url: config.apiUrl + '/writings/' + id,
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
@@ -32,21 +35,26 @@ const updateWriting = (data) => {
   })
 }
 
-const createWriting = () => {
+const createWriting = (data) => {
   return $.ajax({
     method: 'POST',
-    url: config.apiUrl + '/games',
+    url: config.apiUrl + '/writings',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    data: {}
+    data: data
   })
 }
 
-const deleteWriting = function (id) {
+const deleteWriting = function (event) {
+  const id = $(event.target).data('id')
+  console.log(id)
   return $.ajax({
-    url: config.apiUrl + '/books/' + id,
-    method: 'DELETE'
+    url: `${config.apiUrl}/writings/${id}`,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 
