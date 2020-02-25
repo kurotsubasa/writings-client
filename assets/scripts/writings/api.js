@@ -48,9 +48,51 @@ const createWriting = (data) => {
 
 const deleteWriting = function (event) {
   const id = $(event.target).data('id')
-  console.log(id)
   return $.ajax({
     url: `${config.apiUrl}/writings/${id}`,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const createReading = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/readings',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
+
+const updateReading = function (data, id) {
+  return $.ajax({
+    url: `${config.apiUrl}/readings/${id}`,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
+
+const getReadings = () => {
+  return $.ajax({
+    url: config.apiUrl + '/readings',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const deleteReading = function (event) {
+  const id = $(event.target).data('id')
+  return $.ajax({
+    url: `${config.apiUrl}/readings/${id}`,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -63,5 +105,9 @@ module.exports = {
   getWriting,
   updateWriting,
   createWriting,
-  deleteWriting
+  deleteWriting,
+  createReading,
+  updateReading,
+  getReadings,
+  deleteReading
 }

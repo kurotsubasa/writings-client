@@ -1,0 +1,27 @@
+{{#each readings as |reading|}}
+  {{log reading}}
+  <section data-id="{{reading.id}}">
+
+    {{#if reading.editable}}
+      <h3>Reading:</h3>
+      <h3>
+        {{limit reading.material.name 20}}
+      </h3>
+      <h5>
+        {{reading.material.author}}
+      </h5>
+      <p>
+        {{reading.status}}
+      </p>
+    {{else}}
+      start reading
+    {{/if}}
+    <p>
+      {{> update-reading-dropped id=reading.id}}
+      {{> update-reading-finished id=reading.id}}
+      {{> delete-reading id=reading.id}}
+    </p>
+
+  </section>
+
+  {{/each}}
