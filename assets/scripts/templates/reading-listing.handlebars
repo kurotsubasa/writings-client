@@ -1,26 +1,29 @@
-{{#each readings as |reading|}}
-  {{log reading}}
-  <section data-id="{{reading.id}}" class="col-md-5 shadow p-4 mb-4 bg-white rounded mx-1">
-
-    {{#if reading.editable}}
-      <h3>
-        Title: {{limit reading.material.name 20}}
-      </h3>
-      <h5>
-        Author: {{reading.material.author}}
-      </h5>
-      <p>
-        Status: {{reading.status}}
-      </p>
-    {{else}}
-      start reading
-    {{/if}}
-    <p>
-      {{> update-reading-dropped id=reading.id}}
-      {{> update-reading-finished id=reading.id}}
-      {{> delete-reading id=reading.id}}
-    </p>
+{{#unless reading}}
+  <h3>Nothing to see here</j3>
+{{else}}
+  {{#each readings as |reading|}}
+    {{log reading}}
+    <section data-id="{{reading.id}}" class="col-md-5 shadow p-4 mb-4 bg-white rounded mx-1">
+        {{#if reading.editable}}
+          <h3>
+            Title: {{limit reading.material.name 20}}
+          </h3>
+          <h5>
+            Author: {{reading.material.author}}
+          </h5>
+          <p>
+            Status: {{reading.status}}
+          </p>
+          <p>
+            {{> update-reading-dropped id=reading.id}}
+            {{> update-reading-finished id=reading.id}}
+            {{> delete-reading id=reading.id}}
+          </p>
+        {{else}}
+          Start reading some books
+        {{/if}}
 
   </section>
 
   {{/each}}
+{{/unless}}

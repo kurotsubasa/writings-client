@@ -1,38 +1,42 @@
-{{#each writings as |writing|}}
-  {{log Writing}}
-  <section data-id="{{writing.id}}" class="col-md-5 shadow p-4 mb-4 bg-white rounded mx-2">
-    <h3>
-      Title: {{limit writing.name 20}}
-    </h3>
-    <p>
-      Genre: {{#if writing.genre}}
-        {{writing.genre}}
-      {{else}}
-        No genre provided
-      {{/if}}
-    </p>
-    <p>
-      Author: {{#if writing.author}}
-        {{writing.author}}
-      {{else}}
-        No author provided
-      {{/if}}
-    </p>
-    <p>
-      {{> create-reading id=writing.id}}
-    </p>
-    {{#if writing.editable}}
-      {{> remove-writing id=writing.id}}
-    {{else}}
+{{#unless reading}}
+  <h3>Nothing to see here</j3>
+{{else}}
+  {{#each writings as |writing|}}
+    {{log Writing}}
+    <section data-id="{{writing.id}}" class="col-md-5 shadow p-4 mb-4 bg-white rounded mx-2">
+      <h3>
+        Title: {{limit writing.name 20}}
+      </h3>
+        <p>
+          Genre: {{#if writing.genre}}
+            {{writing.genre}}
+          {{else}}
+            No genre provided
+          {{/if}}
+        </p>
+        <p>
+          Author: {{#if writing.author}}
+            {{writing.author}}
+          {{else}}
+            No author provided
+          {{/if}}
+        </p>
+        <p>
+          {{> create-reading id=writing.id}}
+        </p>
+        {{#if writing.editable}}
+          {{> remove-writing id=writing.id}}
+        {{else}}
 
-    {{/if}}
+        {{/if}}
 
-    {{#if writing.editable}}
-      {{> update-writing id=writing.id}}
-    {{else}}
+        {{#if writing.editable}}
+          {{> update-writing id=writing.id}}
+        {{else}}
 
-    {{/if}}
+        {{/if}}
 
-  </section>
+    </section>
 
-  {{/each}}
+    {{/each}}
+  {{/unless}}
