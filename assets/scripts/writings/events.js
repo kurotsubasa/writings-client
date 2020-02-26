@@ -138,6 +138,26 @@ const onUpdateReadingFinished = (event) => {
     .catch(ui.failure)
 }
 
+const onUpdateReadingReading = (event) => {
+  event.preventDefault()
+  const writingId = $(event.target).data('material.id')
+  const id = $(event.target).data('id')
+  const data = {
+    'reading': {
+      'user_id': store.user.id,
+      'writing_id': writingId,
+      'status': 'reading'
+    }
+  }
+  api.updateReading(data, id)
+    .then(function () {
+      ui.updateReadingSuccess()
+      ui.clearWritings()
+      onGetReadings(event)
+    })
+    .catch(ui.failure)
+}
+
 const addHandlers = () => {
   $('#getWritingsButton').on('click', onGetWritings)
   $('#clearWritingsButton').on('click', onClearWritings)
@@ -155,6 +175,7 @@ const addHandlers = () => {
   $('.content').on('click', '.create-reading', onCreateReading)
   $('.content').on('click', '.update-reading-dropped', onUpdateReadingDropped)
   $('.content').on('click', '.update-reading-finished', onUpdateReadingFinished)
+  $('.content').on('click', '.update-reading-reading', onUpdateReadingReading)
   $('.content').on('click', '.delete-reading', onDeleteReading)
 }
 

@@ -21,7 +21,15 @@
           {{/if}}
         </p>
         <p>
-          {{> create-reading id=writing.id}}
+          {{#each readings as |reading|}}
+            {{#if reading.editable}}
+              {{#ifeq reading.material.id writing.id}}
+                {{> create-reading id=writing.id}}
+              {{else}}
+                Read another book
+              {{/ifeq}}
+            {{/if}}
+          {{/each}}
         </p>
         <p>
         {{#if writing.editable}}

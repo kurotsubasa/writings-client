@@ -13,9 +13,29 @@
             Status: {{reading.status}}
           </p>
           <p>
-            {{> update-reading-dropped id=reading.id}}
-            {{> update-reading-finished id=reading.id}}
+            {{#ifeq reading.status "dropped"}}
+              Time to pick this book up again
+            {{else}}
+              {{> update-reading-dropped id=reading.id}}
+            {{/ifeq}}
+          </p>
+          <p>
+            {{#ifeq reading.status "finished"}}
+              Time to find a new book
+            {{else}}
+              {{> update-reading-finished id=reading.id}}
+            {{/ifeq}}
+          </p>
+          <p>
+            {{#ifeq reading.status "reading"}}
+              You're already reading this
+            {{else}}
+              {{> update-reading-reading id=reading.id}}
+            {{/ifeq}}
+          </p>
+          <p>
             {{> delete-reading id=reading.id}}
+          </p>
           </p>
         {{else}}
           Start reading some books
