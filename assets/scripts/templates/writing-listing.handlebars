@@ -13,7 +13,8 @@
           {{/if}}
         </p>
         <p>
-          Author: {{#if writing.author}}
+          Author:
+          {{#if writing.author}}
             {{writing.author}}
           {{else}}
             No author provided
@@ -22,17 +23,20 @@
         <p>
           {{> create-reading id=writing.id}}
         </p>
+        <p>
         {{#if writing.editable}}
           {{> remove-writing id=writing.id}}
         {{else}}
 
         {{/if}}
-
+      </p>
+        <p>
         {{#if writing.editable}}
           {{> update-writing id=writing.id}}
         {{else}}
 
         {{/if}}
+      </p>
 
     </section>
 
