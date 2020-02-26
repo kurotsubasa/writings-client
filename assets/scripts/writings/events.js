@@ -76,7 +76,7 @@ const onCreateReading = (event) => {
     }
   }
   api.createReading(data)
-    .then(ui.onCreateReadingSuccess)
+    .then(ui.createReadingSuccess)
     .catch(ui.failure)
 }
 

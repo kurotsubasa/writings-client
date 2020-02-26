@@ -43,6 +43,10 @@ const deleteReadingSuccess = () => {
   $('#message').text('entry deleted')
 }
 
+const createReadingSuccess = () => {
+  $('#message').text('Added to your list')
+}
+
 module.exports = {
   getWritingsSuccess,
   failure,
@@ -51,5 +55,6 @@ module.exports = {
   createWritingSuccess,
   getReadingsSuccess,
   updateReadingSuccess,
-  deleteReadingSuccess
+  deleteReadingSuccess,
+  createReadingSuccess
 }
