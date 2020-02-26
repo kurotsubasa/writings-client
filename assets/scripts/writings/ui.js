@@ -27,6 +27,7 @@ const updateWritingSuccess = () => {
 const createWritingSuccess = () => {
   $('.closeBtn').trigger('click')
   $('#createWriting').trigger('reset')
+  $('#message').text('entry added')
 }
 
 const failure = () => {
