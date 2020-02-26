@@ -26,6 +26,7 @@ const updateWritingSuccess = () => {
 
 const createWritingSuccess = () => {
   $('.closeBtn').trigger('click')
+  $('#createWriting').trigger('reset')
 }
 
 const failure = () => {
@@ -34,6 +35,7 @@ const failure = () => {
 
 const updateReadingSuccess = () => {
   $('#message').text('list updated')
+  $('#modifyWriting').trigger('reset')
 }
 
 const deleteReadingSuccess = () => {
