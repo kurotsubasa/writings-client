@@ -110,7 +110,11 @@ const onUpdateReadingDropped = (event) => {
     }
   }
   api.updateReading(data, id)
-    .then(ui.updateReadingSuccess)
+    .then(function () {
+      ui.updateReadingSuccess()
+      ui.clearWritings()
+      onGetReadings(event)
+    })
     .catch(ui.failure)
 }
 
@@ -126,7 +130,11 @@ const onUpdateReadingFinished = (event) => {
     }
   }
   api.updateReading(data, id)
-    .then(ui.updateReadingSuccess)
+    .then(function () {
+      ui.updateReadingSuccess()
+      ui.clearWritings()
+      onGetReadings(event)
+    })
     .catch(ui.failure)
 }
 

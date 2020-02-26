@@ -1,6 +1,4 @@
 {{#unless reading}}
-  <h3>Nothing to see here</j3>
-{{else}}
   {{#each writings as |writing|}}
     {{log Writing}}
     <section data-id="{{writing.id}}" class="col-md-5 shadow p-4 mb-4 bg-white rounded mx-2">
@@ -39,4 +37,6 @@
     </section>
 
     {{/each}}
+{{else}}
+  <h3>Nothing to see here</h3>
   {{/unless}}
