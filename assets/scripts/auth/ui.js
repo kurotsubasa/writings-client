@@ -5,6 +5,7 @@ const store = require('./../store')
 const onSignUpSuccess = function (response) {
   $('#message').text('Welcome ' + response.user.email + ', now please sign in :p')
   $('#sign-up').trigger('reset')
+  $('.closeBtn').trigger('click')
   // $('#sign-up').hide()
 }
 
@@ -18,10 +19,13 @@ const onSignInSuccess = function (response) {
   $('#sign-in').trigger('reset')
   store.user = response.user
   $('.token').val(store.user.token)
-  $('#change-password').show()
+  $('.closeBtn').trigger('click')
+  $('#changePasswordBtn').show()
+  $('#createWritingBtn').show()
+  $('#navbar').show()
+  $('#signInBtn').hide()
+  $('#signUpBtn').hide()
   $('#signOut').show()
-  $('#sign-in').hide()
-  $('#sign-up').hide()
   // $('#sign-in').hide(
   // $('#signIn').hide()
   // $('#signUp').hide()
@@ -37,6 +41,7 @@ const onSignInFailure = function (response) {
 const onChangePasswordSuccess = function (response) {
   $('#message').text('successfully changed password')
   $('#change-password').trigger('reset')
+  $('.closeBtn').trigger('click')
   // $('#changePassword').hide()
   // $('#change-password').hide()
 }
@@ -48,10 +53,12 @@ const onChangePasswordFailure = function (response) {
 
 const onSignOutSuccess = function (response) {
   $('#message').text('successfully signed out')
-  $('#change-password').hide()
+  $('#changePasswordBtn').hide()
   $('#signOut').hide()
-  $('#sign-in').show()
-  $('#sign-up').show()
+  $('#navbar').hide()
+  $('#signInBtn').show()
+  $('#signUpBtn').show()
+  $('.content').empty()
   // $('#change-password').hide()
   // $('#changePassword').hide()
   // $('#signOut').hide()

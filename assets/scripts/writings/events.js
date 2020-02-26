@@ -27,11 +27,6 @@ const onDeleteWriting = (event) => {
     .catch(ui.failure)
 }
 
-const onGetCreateWritings = (event) => {
-  event.preventDefault()
-  $('#createWriting').show()
-}
-
 const onCreateWriting = (event) => {
   event.preventDefault()
   const form = event.target
@@ -52,7 +47,6 @@ let updateId
 const onGetUpdateWriting = (event) => {
   event.preventDefault()
   updateId = undefined
-  $('#modifyWriting').show()
   const id = $(event.target).data('id')
   updateId = id
 }
@@ -89,7 +83,11 @@ const onCreateReading = (event) => {
 const onDeleteReading = (event) => {
   event.preventDefault()
   api.deleteReading(event)
-    .then(ui.deleteReadingSuccess)
+    .then(function () {
+      ui.deleteReadingSuccess()
+      ui.clearWritings()
+      onGetReadings(event)
+    })
     .catch(ui.failure)
 }
 
@@ -135,13 +133,15 @@ const onUpdateReadingFinished = (event) => {
 const addHandlers = () => {
   $('#getWritingsButton').on('click', onGetWritings)
   $('#clearWritingsButton').on('click', onClearWritings)
-  $('#createWritingsButton').on('click', onGetCreateWritings)
   $('#getReadingsButton').on('click', onGetReadings)
   // $('#clearReadingsButton').on('click', onClearReadings)
   $('#createWriting').on('submit', onCreateWriting)
   $('#modifyWriting').on('submit', onUpdateWriting)
-  $('#modifyWriting').hide()
-  $('#createWriting').hide()
+  $('#changePasswordBtn').hide()
+  $('#createWritingBtn').hide()
+  $('#navbar').hide()
+  // $('#modifyWriting').hide()
+  // $('#createWriting').hide()
   $('.content').on('click', '.update-writing', onGetUpdateWriting)
   $('.content').on('click', '.remove-writing', onDeleteWriting)
   $('.content').on('click', '.create-reading', onCreateReading)

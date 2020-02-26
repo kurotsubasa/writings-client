@@ -11,74 +11,175 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
-    <body>
-      <h1>Writings</h1>
-      <nav>
-        <div class="buttons">
-          <!-- <button id="signIn" class="user">Sign In!</button>
-          <button id="signUp" class="user">Sign Up!</button> -->
-          <button id="signOut" class="btn btn-danger">Sign Out!</button>
-          <button id="getWritingsButton" class="btn btn-info mr-2">Get Writings!</button>
-          <button id="clearWritingsButton" class="btn btn-outline-info">Clear!</button>
-          <button id="getReadingsButton" class="btn btn-info mr-2">Get Readings!</button>
-          <button id="createWritingsButton" class="btn btn-outline-info">Create Writing!</button>
+    <body class="bg-secondary">
+      <h1 class="bg-dark text-light mb-0">Writings</h1>
+
+
+      <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top mt-0">
+        <a class="navbar-brand" href="#">Pick your poison</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse col btn-group-vertical" id="navbarNav">
+          <button id="getWritingsButton" class="btn btn-info mr-2 float-right my-1">Get Writings!</button>
+          <button id="getReadingsButton" class="btn btn-info mr-2 float-right my-1">Get Readings!</button>
+          <button type="button" id="createWritingBtn" class="btn btn-info mr-2 float-right my-1" data-toggle="modal" data-target="#createWritingModal">
+                Create Writing!
+              </button>
+          <button id="clearWritingsButton" class="btn btn-info mr-2 float-right my-1">Clear!</button>
         </div>
       </nav>
       <h2 id="message"></h2>
       <div id="forms">
-        <form id="sign-up">
-          <fieldset>
-            <legend>Sign Up!</legend>
-            <input name="credentials[email]" class="form-control" type="email" placeholder="you@xample.com">
-            <input name="credentials[password]" class="form-control" type="password" placeholder="password">
-            <input name="credentials[password_confirmation]" class="form-control" type="password" placeholder="confirm password">
-            <input type="submit" class="btn btn-secondary" value="Sign Up!">
-          </fieldset>
-        </form>
 
-        <form id= "sign-in">
-          <fieldset>
-            <legend>Sign In!</legend>
-            <input name="credentials[email]" class="form-control" type="email" placeholder="example@example.com">
-            <input name="credentials[password]" class="form-control" type="password" placeholder="password">
-            <input type="submit" class="btn btn-secondary" value="Sign in!">
-          </fieldset>
-        </form>
+        <button id="signOut" class="btn btn-dark">Sign Out!</button>
 
-        <form id='change-password'>
-        <fieldset>
-          <legend>Change Password!</legend>
-          <input name="passwords[old]" class="form-control" type="password" placeholder="Old Password">
-          <input name="passwords[new]" class="form-control" type="password" placeholder="New Password">
-          <input type="submit" class="btn btn-warning" value="Change password">
-        </fieldset>
-      </form>
+        <button type="button" id="signUpBtn" class="btn btn-primary" data-toggle="modal" data-target="#signUpModal">
+          Sign Up!
+        </button>
+
+        <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form id="sign-up">
+                  <fieldset>
+                    <legend>Sign Up!</legend>
+                    <input name="credentials[email]" class="form-control" type="email" placeholder="you@xample.com">
+                    <input name="credentials[password]" class="form-control" type="password" placeholder="password">
+                    <input name="credentials[password_confirmation]" class="form-control" type="password" placeholder="confirm password">
+                    <input type="submit" class="btn btn-secondary" value="Sign Up!">
+                    <button type="button" class="btn btn-secondary closeBtn" data-dismiss="modal">Close</button>
+                  </fieldset>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" id="signInBtn" class="btn btn-primary" data-toggle="modal" data-target="#signInModal">
+          Sign In!
+        </button>
+
+        <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form id= "sign-in">
+                  <fieldset>
+                    <legend>Sign In!</legend>
+                    <input name="credentials[email]" class="form-control" type="email" placeholder="example@example.com">
+                    <input name="credentials[password]" class="form-control" type="password" placeholder="password">
+                    <input type="submit" class="btn btn-secondary" value="Sign in!">
+                    <button type="button" class="btn btn-secondary closeBtn" data-dismiss="modal">Close</button>
+                  </fieldset>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+      <button type="button" id="changePasswordBtn" class="btn btn-dark" data-toggle="modal" data-target="#changePasswordModal">
+        Change Password!
+      </button>
+
+      <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form id='change-password'>
+              <fieldset>
+                <legend>Change Password!</legend>
+                <input name="passwords[old]" class="form-control" type="password" placeholder="Old Password">
+                <input name="passwords[new]" class="form-control" type="password" placeholder="New Password">
+                <input type="submit" class="btn btn-warning" value="Change password">
+                <button type="button" class="btn btn-secondary closeBtn" data-dismiss="modal">Close</button>
+              </fieldset>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
 
       </div>
       <main>
-        <form id='modifyWriting'>
-          <fieldset>
-            <legend>Change your entry!</legend>
-            <input name="writing[name]" class="form-control" type="text" placeholder="Lord of the Flies">
-            <input name="writing[genre]" class="form-control" type="text" placeholder="scifi">
-            <input name="writing[author]" class="form-control" type="text" placeholder="William Golding">
-            <input name="writing[id]" id="modifyId" class="form-control" type="hidden">
-            <input type="submit" class="btn btn-secondary" value="Submit">
-          </fieldset>
-        </form>
 
-        <form id='createWriting'>
-          <fieldset>
-            <legend>Create your entry!</legend>
-            <input name="writing[name]" class="form-control" type="text" placeholder="Lord of the Flies">
-            <input name="writing[genre]" class="form-control" type="text" placeholder="scifi">
-            <input name="writing[author]" class="form-control" type="text" placeholder="William Golding">
-            <input type="submit" class="btn btn-secondary" value="Submit">
-          </fieldset>
-        </form>
 
-        <div id="content" class="content">
+        <div class="modal fade" id="updateWritingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form id='modifyWriting'>
+                  <fieldset>
+                    <legend>Change your entry!</legend>
+                    <input name="writing[name]" class="form-control" type="text" placeholder="Lord of the Flies">
+                    <input name="writing[genre]" class="form-control" type="text" placeholder="scifi">
+                    <input name="writing[author]" class="form-control" type="text" placeholder="William Golding">
+                    <input name="writing[id]" id="modifyId" class="form-control" type="hidden">
+                    <input type="submit" class="btn btn-secondary" value="Submit">
+                    <button type="button" class="btn btn-secondary closeBtn" data-dismiss="modal">Close</button>
+                  </fieldset>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <div class="modal fade" id="createWritingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form id='createWriting'>
+                  <fieldset>
+                    <legend>Create your entry!</legend>
+                    <input name="writing[name]" class="form-control" type="text" placeholder="Lord of the Flies">
+                    <input name="writing[genre]" class="form-control" type="text" placeholder="scifi">
+                    <input name="writing[author]" class="form-control" type="text" placeholder="William Golding">
+                    <input type="submit" class="btn btn-secondary" value="Submit">
+                    <button type="button" class="btn btn-secondary closeBtn" data-dismiss="modal">Close</button>
+                  </fieldset>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container">
+          <div id="content" class="content row mt-2">
+          </div>
+      </main>
 
       </main>
     </body>

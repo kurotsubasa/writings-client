@@ -21,11 +21,11 @@ const clearWritings = () => {
 }
 
 const updateWritingSuccess = () => {
-  $('#modifyWriting').hide()
+  $('.closeBtn').trigger('click')
 }
 
 const createWritingSuccess = () => {
-  $('#createWriting').hide()
+  $('.closeBtn').trigger('click')
 }
 
 const failure = () => {

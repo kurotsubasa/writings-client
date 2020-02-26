@@ -1,17 +1,16 @@
 {{#each readings as |reading|}}
   {{log reading}}
-  <section data-id="{{reading.id}}">
+  <section data-id="{{reading.id}}" class="col-md-5 shadow p-4 mb-4 bg-white rounded mx-1">
 
     {{#if reading.editable}}
-      <h3>Reading:</h3>
       <h3>
-        {{limit reading.material.name 20}}
+        Title: {{limit reading.material.name 20}}
       </h3>
       <h5>
-        {{reading.material.author}}
+        Author: {{reading.material.author}}
       </h5>
       <p>
-        {{reading.status}}
+        Status: {{reading.status}}
       </p>
     {{else}}
       start reading
