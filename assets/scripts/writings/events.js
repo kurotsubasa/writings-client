@@ -8,6 +8,13 @@ const store = require('./../store')
 const onGetWritings = (event) => {
   event.preventDefault()
   api.getWritings()
+    .then(function (data) {
+      store.writings = data.writings
+    })
+    .then(api.getReadings)
+    .then(function (data) {
+      store.readings = data.readings
+    })
     .then(ui.getWritingsSuccess)
     .catch(ui.failure)
 }
