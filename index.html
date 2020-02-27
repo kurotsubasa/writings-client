@@ -138,9 +138,9 @@
               <div class="modal-body">
                 <form id='modifyWriting'>
                   <fieldset>
-                    <input name="writing[name]" class="form-control" type="text" placeholder="Title">
-                    <input name="writing[genre]" class="form-control" type="text" placeholder="scifi">
-                    <input name="writing[author]" class="form-control" type="text" placeholder="William Golding">
+                    <input name="writing[name]" class="form-control" type="text" placeholder="Title" required>
+                    <input name="writing[genre]" class="form-control" type="text" placeholder="Genre" required>
+                    <input name="writing[author]" class="form-control" type="text" placeholder="Author"required>
                     <input name="writing[id]" id="modifyId" class="form-control" type="hidden">
                     <input type="submit" class="btn btn-secondary" value="Submit">
                     <button type="button" class="btn btn-secondary closeBtn" data-dismiss="modal">Close</button>
@@ -163,9 +163,9 @@
               <div class="modal-body">
                 <form id='createWriting'>
                   <fieldset>
-                    <input name="writing[name]" class="form-control" type="text" placeholder="Title">
-                    <input name="writing[genre]" class="form-control" type="text" placeholder="Genre">
-                    <input name="writing[author]" class="form-control" type="text" placeholder="Author">
+                    <input name="writing[name]" class="form-control" type="text" placeholder="Title" required>
+                    <input name="writing[genre]" class="form-control" type="text" placeholder="Genre" required>
+                    <input name="writing[author]" class="form-control" type="text" placeholder="Author" required>
                     <input type="submit" class="btn btn-secondary" value="Submit">
                     <button type="button" class="btn btn-secondary closeBtn" data-dismiss="modal">Close</button>
                   </fieldset>
