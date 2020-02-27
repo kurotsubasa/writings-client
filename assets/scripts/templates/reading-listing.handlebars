@@ -1,6 +1,5 @@
 {{#unless reading}}
   {{#each readings as |reading|}}
-    {{log reading}}
     <section data-id="{{reading.id}}" class="col-md-5 shadow p-4 mb-4 bg-white rounded mx-1">
         {{#if reading.editable}}
           <h3>
@@ -37,8 +36,6 @@
             {{> delete-reading id=reading.id}}
           </p>
           </p>
-        {{else}}
-          Start reading some books
         {{/if}}
 
   </section>

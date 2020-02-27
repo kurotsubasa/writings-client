@@ -2,7 +2,6 @@
   {{#each writings as |writing|}}
     {{log Writing}}
     <section data-id="{{writing.id}}" class="col-md-5 shadow p-4 mb-4 bg-white rounded mx-2">
-      {{log ../readings}}
       <h3>
         Title: {{limit writing.name 20}}
       </h3>
@@ -29,15 +28,11 @@
         <p>
         {{#if writing.editable}}
           {{> remove-writing id=writing.id}}
-        {{else}}
-
         {{/if}}
       </p>
         <p>
         {{#if writing.editable}}
           {{> update-writing id=writing.id}}
-        {{else}}
-
         {{/if}}
       </p>
 
