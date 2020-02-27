@@ -1,4 +1,4 @@
-{{#unless reading}}
+{{#unless writing}}
   {{#each writings as |writing|}}
     {{log Writing}}
     <section data-id="{{writing.id}}" class="col-md-5 shadow p-4 mb-4 bg-white rounded mx-2">
@@ -21,15 +21,18 @@
           {{/if}}
         </p>
         <p>
+          <p>
           {{#each readings as |reading|}}
             {{#if reading.editable}}
-              {{#ifeq reading.material.id writing.id}}
-                {{> create-reading id=writing.id}}
-              {{else}}
-                Read another book
-              {{/ifeq}}
+                {{log reading}}
+                {{#ifeq reading.material writing.id}}
+                  {{> create-reading id=writing.id}}
+                {{else}}
+                  Read something else
+                {{/ifeq}}
             {{/if}}
           {{/each}}
+        </p>
         </p>
         <p>
         {{#if writing.editable}}

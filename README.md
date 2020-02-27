@@ -6,6 +6,8 @@
 ## Important Links
   -[Live server]: https://mysterious-thicket-47234.herokuapp.com/writings
   -[Github Repo]: https://github.com/kurotsubasa/writings-api
+  -[Live client]: https://kurotsubasa.github.io/writings-client/
+  -[Github repo]: https://github.com/kurotsubasa/writings-client
 
 ## Planning story
   During the planning phase of the project, I had created a timeline for my process.  In this plan, I would have made the database on the first day.  On the second day I would start doing the auth events and start on the front end functionality.  The third day, I would finish up the functionality and go bug hunting to fix my code.  On the last day, I would primarily dedicate to also bug hunting and creating new functionality past mvp.  The weekend would be used for expediting the process in whatever way I could.  Throughout the process of this project, what really surprised me was the fact that the backend was quite uneventful as everything worked as expected.  This project helped me understand and work more efficiently with api's perhaps due to the fact that since I was the one that created the api, I understood its data structure much more and this in turn allowed me to more efficiently access and send data to it.  The biggest hurdle in this project was perhaps when the many to many relationship was created in the back end.  At this point, when I was renaming the relationships in order to avoid overlap in the names, many problems emerged and it took me 3 hours as well as an issue queue to finally get it working.

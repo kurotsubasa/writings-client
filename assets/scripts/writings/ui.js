@@ -2,12 +2,11 @@
 
 const showWritingsTemplate = require('../templates/writing-listing.handlebars')
 const showReadingsTemplate = require('../templates/reading-listing.handlebars')
-const store = require('../store.js')
 
 const getWritingsSuccess = (data) => {
   console.log(data)
   clearWritings()
-  const showWritingsHtml = showWritingsTemplate({writings: data.writings, store: store})
+  const showWritingsHtml = showWritingsTemplate({writings: data.writings, readings: data.readings})
   $('.content').append(showWritingsHtml)
 }
 
