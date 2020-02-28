@@ -2,17 +2,18 @@
 
 const showWritingsTemplate = require('../templates/writing-listing.handlebars')
 const showReadingsTemplate = require('../templates/reading-listing.handlebars')
+const store = require('../store.js')
 
 const getWritingsSuccess = (data) => {
-  console.log(data)
   clearWritings()
-  const showWritingsHtml = showWritingsTemplate({writings: data.writings})
+  const showWritingsHtml = showWritingsTemplate({writings: store.writings, readings: store.readings})
   $('.content').append(showWritingsHtml)
 }
 
 const getReadingsSuccess = (data) => {
   clearWritings()
-  const showReadingsHtml = showReadingsTemplate({readings: data.readings})
+  const userReadings = (data.readings).filter(reading => (reading.editable === true))
+  const showReadingsHtml = showReadingsTemplate({readings: userReadings})
   $('.content').prepend(showReadingsHtml)
 }
 

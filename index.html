@@ -10,12 +10,10 @@
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body class="bg-secondary">
+    <body class="bg-secondary" background="https://images.wallpaperscraft.com/image/deer_silhouette_forest_130032_1280x1280.jpg">
       <h1 class="bg-dark text-light mb-0">Writings</h1>
-
-
-      <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top mt-0">
+      <header class="bg-dark">
+        <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top mt-0">
         <a class="navbar-brand" href="#">Pick your poison</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -28,16 +26,26 @@
               </button>
           <button id="clearWritingsButton" class="btn btn-info mr-2 float-right my-1">Clear Page!</button>
         </div>
-      </nav>
-      <h2 id="message"></h2>
-      <p>v1.5</p>
-      <div id="forms">
 
+      </nav>
+      <div id="topBtns">
         <button id="signOut" class="btn btn-dark">Sign Out!</button>
 
         <button type="button" id="signUpBtn" class="btn btn-primary" data-toggle="modal" data-target="#signUpModal">
           Sign Up!
         </button>
+        <button type="button" id="signInBtn" class="btn btn-primary" data-toggle="modal" data-target="#signInModal">
+          Sign In!
+        </button>
+
+        <button type="button" id="changePasswordBtn" class="btn btn-dark" data-toggle="modal" data-target="#changePasswordModal">
+          Change Password!
+        </button>
+      </div>
+    </header>
+      <h2 id="message" class="text-light"></h2>
+      <p>v1.5</p>
+      <div id="forms">
 
         <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
@@ -64,10 +72,6 @@
           </div>
         </div>
 
-        <button type="button" id="signInBtn" class="btn btn-primary" data-toggle="modal" data-target="#signInModal">
-          Sign In!
-        </button>
-
         <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -91,12 +95,6 @@
             </div>
           </div>
         </div>
-
-
-
-      <button type="button" id="changePasswordBtn" class="btn btn-dark" data-toggle="modal" data-target="#changePasswordModal">
-        Change Password!
-      </button>
 
       <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">

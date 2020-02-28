@@ -8,6 +8,13 @@ const store = require('./../store')
 const onGetWritings = (event) => {
   event.preventDefault()
   api.getWritings()
+    .then(function (data) {
+      store.writings = data.writings
+    })
+    .then(api.getReadings)
+    .then(function (data) {
+      store.readings = data.readings
+    })
     .then(ui.getWritingsSuccess)
     .catch(ui.failure)
 }
@@ -31,7 +38,6 @@ const onCreateWriting = (event) => {
   event.preventDefault()
   const form = event.target
   const data = getFormFields(form)
-  console.log(data)
 
   api.createWriting(data)
     .then(function () {

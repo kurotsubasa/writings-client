@@ -1,9 +1,9 @@
 {{#unless reading}}
   {{#each readings as |reading|}}
-    <section data-id="{{reading.id}}" class="col-md-5 shadow p-4 mb-4 bg-white rounded mx-1">
+    <section data-id="{{reading.id}}" class="col-md-5 shadow p-4 mb-4 bg-dark rounded mx-1 text-light">
         {{#if reading.editable}}
           <h3>
-            Title: {{limit reading.material.name 20}}
+            Title: {{reading.material.name}}
           </h3>
           <h5>
             Author: {{reading.material.author}}

@@ -1,7 +1,6 @@
 {{#unless writing}}
   {{#each writings as |writing|}}
-    {{log Writing}}
-    <section data-id="{{writing.id}}" class="col-md-5 shadow p-4 mb-4 bg-white rounded mx-2">
+    <section data-id="{{writing.id}}" class="col-md-5 shadow p-4 mb-4 bg-dark rounded mx-2 text-light">
       <h3>
         Title: {{writing.name}}
       </h3>
@@ -22,7 +21,13 @@
         </p>
         <p>
           <p>
-            {{> create-reading id=writing.id}}
+          {{#each ../readings as |reading|}}
+            {{#ifeqs writing ../readings}}
+                Read something else
+              {{else}}
+                {{> create-reading id=writing.id}}
+              {{/ifeqs}}
+          {{/each}}
         </p>
         </p>
         <p>
