@@ -21,13 +21,10 @@
         </p>
         <p>
           <p>
-          {{#each ../readings as |reading|}}
             {{#ifeqs writing ../readings}}
-                Read something else
-              {{else}}
-                {{> create-reading id=writing.id}}
-              {{/ifeqs}}
-          {{/each}}
+            {{else}}
+              {{> create-reading id=writing.id}}
+            {{/ifeqs}}
         </p>
         </p>
         <p>

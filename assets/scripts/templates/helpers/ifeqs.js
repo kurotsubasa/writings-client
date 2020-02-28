@@ -1,10 +1,17 @@
 'use strict'
 
 const ifeqs = function (arg1, arg2, options) {
-  console.table(arg2)
-  const argh = arg2.find(arg => arg.material.id === arg1.id)
+  let argi = arg2.find(arg => arg.material.id === arg1.id)
 
-  if (arg1 === argh) {
+  if (argi === undefined) {
+    argi = {
+      material: {
+        id: -1
+      }
+    }
+  }
+
+  if (arg1.id === argi.material.id) {
     return options.fn(this)
   } else {
     return options.inverse(this)

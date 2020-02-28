@@ -82,7 +82,11 @@ const onCreateReading = (event) => {
     }
   }
   api.createReading(data)
-    .then(ui.createReadingSuccess)
+    .then(function () {
+      ui.clearWritings()
+      ui.createReadingSuccess()
+
+    })
     .catch(ui.failure)
 }
 

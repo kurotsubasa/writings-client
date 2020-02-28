@@ -6,7 +6,8 @@ const store = require('../store.js')
 
 const getWritingsSuccess = (data) => {
   clearWritings()
-  const showWritingsHtml = showWritingsTemplate({writings: store.writings, readings: store.readings})
+  const userReadings = (store.readings).filter(reading => (reading.editable === true))
+  const showWritingsHtml = showWritingsTemplate({writings: store.writings, readings: userReadings})
   $('.content').append(showWritingsHtml)
 }
 
