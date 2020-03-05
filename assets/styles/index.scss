@@ -5,9 +5,57 @@
 }
 
 .content {
+  display: flex;
+  justify-content: center;
+  text-align: center;
   width: 100%;
 }
 
 .text-light {
   opacity: 70%;
+}
+
+#message {
+  background-color: #292b2c;
+  color: white;
+  opacity: 70%;
+}
+
+body {
+  background-image: url('https://66.media.tumblr.com/f491622f93ef451f074e5a6181d75df1/tumblr_ovf1b5uq3J1to4qtto1_540.gifv');
+  background-size: cover;
+
+  height: 100%;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+.btn:hover {
+  background-color: black !important;
+  color: white !important;;
+}
+
+.btn {
+  background-color: white !important;
+  color: black !important;
+}￼￼
+
+
+.create-reading {
+  background-color: white !important;
+  color: black !important;
+}
+
+.img {
+  justify-content: center;
+}
+
+.btn-secondary {
+  background-color: black !important;
+  color: white !important;
 }

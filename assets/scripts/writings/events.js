@@ -85,7 +85,7 @@ const onCreateReading = (event) => {
     .then(function () {
       ui.clearWritings()
       ui.createReadingSuccess()
-
+      onGetWritings(event)
     })
     .catch(ui.failure)
 }
