@@ -1,6 +1,7 @@
 {{#unless reading}}
   {{#each readings as |reading|}}
     <section data-id="{{reading.id}}" class="col-md-5 shadow p-4 mb-4 bg-dark rounded mx-1 text-light">
+      <img src="https://image.freepik.com/free-vector/vintage-old-open-book-spread-mockup-with-blank-pages_135176-557.jpg" height="90" width="90">
         {{#if reading.editable}}
           <h3>
             Title: {{reading.material.name}}
