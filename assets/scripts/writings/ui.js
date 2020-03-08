@@ -8,7 +8,7 @@ const getWritingsSuccess = (data) => {
   clearWritings()
   const userReadings = (store.readings).filter(reading => (reading.editable === true))
   const showWritingsHtml = showWritingsTemplate({writings: store.writings, readings: userReadings})
-  $('.content').append(showWritingsHtml)
+  $('.content').prepend(showWritingsHtml)
 }
 
 const getReadingsSuccess = (data) => {
