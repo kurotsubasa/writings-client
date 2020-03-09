@@ -2,12 +2,14 @@
   {{#each readings as |reading|}}
     <section data-id="{{reading.id}}" class="col-md-5 shadow p-4 mb-4 bg-dark rounded mx-1 text-light">
       <img src="https://image.freepik.com/free-vector/vintage-old-open-book-spread-mockup-with-blank-pages_135176-557.jpg" height="90" width="90">
-        {{#if reading.editable}}
           <h3>
             Title: {{reading.material.name}}
           </h3>
           <h5>
             Author: {{reading.material.author}}
+          </h5>
+          <h5>
+            Genre: {{reading.material.genre}}
           </h5>
           <p>
             Status: {{reading.status}}
@@ -37,9 +39,6 @@
             {{> delete-reading id=reading.id}}
           </p>
           </p>
-          {{else}}
-          Not yours :p
-        {{/if}}
 
   </section>
 
