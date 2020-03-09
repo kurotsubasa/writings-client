@@ -6,6 +6,7 @@ const onSignUpSuccess = function (response) {
   $('#message').text('Welcome ' + response.user.email + ', now please sign in :p')
   $('#sign-up').trigger('reset')
   $('.closeBtn').trigger('click')
+  $('#signInBtn').trigger('click')
   // $('#sign-up').hide()
 }
 
