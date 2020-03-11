@@ -29,29 +29,29 @@
             {{#ifeq reading.id 0}}
               {{please}}
             {{else}}
-            {{#ifeq reading.status "finished"}}
-              Time to find a new book
-            {{else}}
-              {{> update-reading-finished id=reading.id}}
-            {{/ifeq}}
-            {{/ifeq}}
-          </p>
-          <p>
-            {{#ifeq reading.id 0}}
-              {{please}}
-            {{else}}
-            {{#ifeq reading.status "reading"}}
-              You're already reading this
-            {{else}}
-              {{> update-reading-reading id=reading.id}}
-            {{/ifeq}}
+              {{#ifeq reading.status "finished"}}
+                Time to find a new book
+              {{else}}
+                {{> update-reading-finished id=reading.id}}
+              {{/ifeq}}
             {{/ifeq}}
           </p>
           <p>
             {{#ifeq reading.id 0}}
               {{please}}
             {{else}}
-            {{> delete-reading id=reading.id}}
+              {{#ifeq reading.status "reading"}}
+                You're already reading this
+              {{else}}
+                {{> update-reading-reading id=reading.id}}
+              {{/ifeq}}
+            {{/ifeq}}
+          </p>
+          <p>
+            {{#ifeq reading.id 0}}
+              {{please}}
+            {{else}}
+              {{> delete-reading id=reading.id}}
             {{/ifeq}}
           </p>
           </p>
